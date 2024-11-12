@@ -30,7 +30,7 @@ const createAvaliacao = async (Avaliacao) => {
   } = Avaliacao;
 
   const query =
-    "INSERT INTO avaliacao(data_select, hora_select, nome_paciente, hd_paciente, pi, hand, peak, ims, mrc) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+    "INSERT INTO avaliacao (data_select, hora_select, nome_paciente, hd_paciente, pi, hand, peak, ims, mrc) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
   const [createAvaliacao] = await connection.execute(query, [
     data_select,

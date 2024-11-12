@@ -22,11 +22,3 @@ const PORT = process.env.PORT || 8080;
 
 server.listen(PORT, () => console.log(`Servidor rodando na porta: ${PORT}`));
 
-// Para rodar o servidor em modo de desenvolvimento:
-// precisa estar no diretório 'backend'.
-// Abra o terminal e rode seguinte comando:
-// npm run dev
-//
-// Para rodar o servidor em modo normal:
-// Abra o terminal e rode o seguinte comando:
-// npm start

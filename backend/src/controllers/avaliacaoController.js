@@ -1,51 +1,51 @@
-const viagemModel = require("../models/viagemModel");
+const avaliacaoModel = require("../models/avaliacaoModel");
 //------------------------------------------------------------------
 // Selecionar todos os cadastros:
 const getALL = async (_request, response) => {
-  const viagem = await viagemModel.getALL();
+  const avaliacao = await avaliacaoModel.getALL();
 
-  return response.status(200).json(viagem);
+  return response.status(200).json(avaliacao);
 
   //return response.status(200).json({ messege: "Controller esta Funcionando!" });
 };
 //------------------------------------------------------------------
-// Selecionar Viagem por ID:
+// Selecionar Avaliação por ID:
 const getID = async (request, response) => {
   const { id } = request.params;
-  const getID = await viagemModel.getID(id);
+  const getID = await avaliacaoModel.getID(id);
 
   return response.status(200).json(getID);
 };
 //------------------------------------------------------------------
-// Criar um novo cadastro de Viagem:
-const createViagem = async (request, response) => {
-  const createdViagem = await viagemModel.createViagem(request.body);
-  return response.status(201).json(createdViagem);
+// Criar um novo cadastro de Avaliação:
+const createAvaliacao = async (request, response) => {
+  const createdAvaliacao = await avaliacaoModel.createAvaliacao(request.body);
+  return response.status(201).json(createdAvaliacao);
 
   // Teste de response:
   //return response.status(201).json(request.body);
 };
 //------------------------------------------------------------------
-// Excluir um cadastro de Viagem:
-const deleteViagem = async (request, response) => {
+// Excluir um cadastro de Avaliação:
+const deleteAvaliacao = async (request, response) => {
   const { id } = request.params;
 
-  await viagemModel.deleteViagem(id);
+  await avaliacaoModel.deleteAvaliacao(id);
   return response.status(204).json();
 };
 //------------------------------------------------------------------
-// Alterar cadastro de Viagem:
-const updateViagem = async (request, response) => {
+// Alterar cadastro de Avaliação:
+const updateAvaliacao = async (request, response) => {
   const { id } = request.params;
 
-  await viagemModel.updateViagem(id, request.body);
+  await avaliacaoModel.updateAvaliacao(id, request.body);
   return response.status(204).json();
 };
 //------------------------------------------------------------------
 module.exports = {
   getID,
   getALL,
-  createViagem,
-  deleteViagem,
-  updateViagem,
+  createAvaliacao,
+  deleteAvaliacao,
+  updateAvaliacao,
 };
