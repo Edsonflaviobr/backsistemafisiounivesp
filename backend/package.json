@@ -1,7 +1,7 @@
 {
-  "name": "backendagendamentoviagens",
+  "name": "backsistemafisiounivesp",
   "version": "1.0.0",
-  "description": "Projeto Integrador I Univesp - Sistema para agendamento de Viagens (backend)",
+  "description": "Projeto Integrador II Univesp",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -12,6 +12,8 @@
   "author": "Elton Estevam",
   "license": "ISC",
   "dependencies": {
+    "backendagendamentoviagens": "file:",
+    "backsistemafisiounivesp": "file:",
     "cors": "^2.8.5",
     "dotenv": "^16.4.5",
     "express": "^4.19.2",
