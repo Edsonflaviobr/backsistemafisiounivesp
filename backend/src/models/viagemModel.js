@@ -1,100 +1,96 @@
 const connection = require("./connection");
 //------------------------------------------------------------------
-// Consultar Viagem por ID:
+// Consultar Avaliacao por ID:
 const getID = async (id) => {
-  const [getViagem] = await connection.execute(
-    "SELECT * FROM viagem WHERE id = ?",
+  const [getAvaliacao] = await connection.execute(
+    "SELECT * FROM avaliacao WHERE id = ?",
     [id]
   );
-  return getViagem;
+  return getAvaliacao;
 };
 //------------------------------------------------------------------
-// Consulta todas as viagens cadastradas no Banco de Dados:
+// Consulta todas as avaliações cadastradas no Banco de Dados:
 const getALL = async () => {
-  const [viagem] = await connection.execute("SELECT * FROM viagem");
-  return viagem;
+  const [avaliacao] = await connection.execute("SELECT * FROM avaliacao");
+  return avaliacao;
 };
 //------------------------------------------------------------------
-// Criar um novo registro de Viagem:
-const createViagem = async (Viagem) => {
+// Criar um novo registro de Avaliação:
+const createAvaliacao = async (Avaliacao) => {
   const {
     data_select,
     hora_select,
     nome_paciente,
-    rg_paciente,
-    tel_paciente,
-    destino,
-    end_destino,
-    ponto_paciente,
-    obs,
-    ac,
-  } = Viagem;
+    hd_paciente,
+    pi,
+    hand,
+    peak,
+    ims,
+    mrc,
+  } = Avaliacao;
 
   const query =
-    "INSERT INTO viagem(data_select, hora_select, nome_paciente, rg_paciente, tel_paciente, destino, end_destino, ponto_paciente, obs, ac) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+    "INSERT INTO avaliacao(data_select, hora_select, nome_paciente, hd_paciente, pi, hand, peak, ims, mrc) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
-  const [createViagem] = await connection.execute(query, [
+  const [createAvaliacao] = await connection.execute(query, [
     data_select,
     hora_select,
     nome_paciente,
-    rg_paciente,
-    tel_paciente,
-    destino,
-    end_destino,
-    ponto_paciente,
-    obs,
-    ac,
+    hd_paciente,
+    pi,
+    hand,
+    peak,
+    ims,
+    mrc,
   ]);
-  return { insertId: createViagem.insertId };
+  return { insertId: createAvaliacao.insertId };
 };
 //------------------------------------------------------------------
-// Excluir cadastro de Viagem:
-const deleteViagem = async (id) => {
-  const [removedViagem] = await connection.execute(
-    "DELETE FROM viagem WHERE id = ?",
+// Excluir cadastro de Avaliação:
+const deleteAvaliacao = async (id) => {
+  const [removedAvaliacao] = await connection.execute(
+    "DELETE FROM avaliacao WHERE id = ?",
     [id]
   );
-  return removedViagem;
+  return removedAvaliacao;
 };
 //------------------------------------------------------------------
-// Alterar dados cadastrados de Viagens:
-const updateViagem = async (id, Viagem) => {
+// Alterar dados cadastrados de Avaliação:
+const updateAvaliacao = async (id, Avaliacao) => {
   const {
     data_select,
     hora_select,
     nome_paciente,
-    rg_paciente,
-    tel_paciente,
-    destino,
-    end_destino,
-    ponto_paciente,
-    obs,
-    ac,
-  } = Viagem;
+    hd_paciente,
+    pi,
+    hand,
+    peak,
+    ims,
+    mrc,
+  } = Avaliacao;
 
   const query =
-    "UPDATE viagem SET data_select = ?, hora_select = ?, nome_paciente = ?, rg_paciente = ?, tel_paciente = ?, destino = ?, end_destino = ?, ponto_paciente = ?, obs = ?, ac = ? WHERE id = ?";
+    "UPDATE avaliacao SET data_select = ?, hora_select = ?, nome_paciente = ?, hd_paciente = ?, pi = ?, hand = ?, peak = ?, ims = ?, mrc = ? WHERE id = ?";
 
-  const [updatedViagem] = await connection.execute(query, [
+  const [updatedAvaliacao] = await connection.execute(query, [
     data_select,
     hora_select,
     nome_paciente,
-    rg_paciente,
-    tel_paciente,
-    destino,
-    end_destino,
-    ponto_paciente,
-    obs,
-    ac,
+    hd_paciente,
+    pi,
+    hand,
+    peak,
+    ims,
+    mrc,
     id,
   ]);
-  return updatedViagem;
+  return updatedAvaliacao;
 };
 //------------------------------------------------------------------
 module.exports = {
   getID,
   getALL,
-  createViagem,
-  deleteViagem,
-  updateViagem,
+  createAvaliacao,
+  deleteAvaliacao,
+  updateAvaliacao,
 };
