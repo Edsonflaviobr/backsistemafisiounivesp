@@ -18,7 +18,7 @@ const server = https.createServer(options, app);
 require("dotenv").config();
 
 // Porta onde vai rodar o servidor:
-const PORT = process.env.PORT || 8080;
+const PORT = process.env.PORT || 9001;
 
 server.listen(PORT, () => console.log(`Servidor rodando na porta: ${PORT}`));
 
