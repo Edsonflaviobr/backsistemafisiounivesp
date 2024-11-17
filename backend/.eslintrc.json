@@ -6,7 +6,7 @@
   },
   "extends": "eslint:recommended",
   "parserOptions": {
-    "ecmaVersion": "latest"
+    "ecmaVersion": 12  // Usando ecmaVersion 12 para garantir compatibilidade com ES2021
   },
   "rules": {
     "indent": ["error", 2],
